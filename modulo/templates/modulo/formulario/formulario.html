@@ -1,0 +1,104 @@
+{% csrf_token %}
+<div class="col-12">
+    <div class=" alert-danger text-justify">
+        {{ form.non_field_errors }}
+    </div>
+</div>
+{% for field in form %}
+    <div class="form-group">
+        {% if field.is_hidden %}
+            {{ field }}
+        {% else %}
+            <div class="alert-danger">
+                {{ field.errors }}
+            </div>
+            {% if field.0.data.type == "checkbox" %}
+                <div class="form-check form-switch mt-3 mb-3">
+                    {{ field }}
+                    <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}
+                        {% if field.field.required %}
+                            <span class="text-danger">*</span>
+                        {% endif %}
+                    </label>
+                </div>
+            {% elif field.0.data.type == "radio" %}
+                <div class="form-control mb-3">
+                    <label class="form-label">{{ field.label }}
+                        {% if field.field.required %}
+                            <span class="text-danger">*</span>
+                        {% endif %}
+                    </label>
+                    {% for check in field %}
+                        <div class="form-check ms-4">
+                            {{ check.tag }}
+                            <label for="{{ check.id_for_label }}">{{ check.choice_label }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% elif field.0.data.type == "search" %}
+                <label for="{{ field.id_for_label }}" class="mb-2 form-label">{{ field.label }}
+                    {% if field.field.required %}
+                        <span class="text-danger">*</span>
+                    {% endif %}
+                </label>
+                <div class="input-group mb-3">
+                    {{ field }}
+                    <button class="btn btn-outline-secondary" type="button" id="{{ field.id_for_label }}-buscar">Buscar
+                    </button>
+                </div>
+            {% elif field.0.data.type == "select" %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class=" form-label mb-2">{{ field.label }}
+                        {% if field.field.required %}
+                            <span class="text-danger">*</span>
+                        {% endif %}
+                    </label>
+                    {{ field }}
+                </div>
+            {% elif field.name == "captcha" %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label mb-1">{{ field.label }}
+                        {% if field.field.required %}
+                            <span class="text-danger">*</span>
+                        {% endif %}
+                    </label>
+                    <div class="text-center justify-content-center">
+                        {{ field }}
+                    </div>
+                </div>
+            {% elif field.0.data.type == "file" %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label input-group-text mb-1">{{ field.label }}
+                        {% if field.field.required %}
+                            <span class="text-danger">*</span>
+                        {% endif %}
+                    </label>
+                    {{ field }}
+                </div>
+            {% else %}
+                {% if field.0.data.type %}
+                    <div class="form-floating mb-3">
+                        {{ field }}
+                        <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}
+                            {% if field.field.required %}
+                                <span class="text-danger">*</span>
+                            {% endif %}
+                        </label>
+                    </div>
+                {% else %}
+                    <div class="mb-3">
+                        <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}
+                            {% if field.field.required %}
+                                <span class="text-danger">*</span>
+                            {% endif %}
+                        </label>
+                        {{ field }}
+                    </div>
+                {% endif %}
+            {% endif %}
+            {% if field.help_text %}
+                <div class="help alert alert-info p-2 mb-3">{{ field.help_text|safe }}</div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endfor %}
