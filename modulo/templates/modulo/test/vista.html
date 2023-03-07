@@ -5,6 +5,13 @@
         <div id="contentTable" class="card-body">
         </div>
     </div>
+    <div class="card shadow rounded-3 mb-3">
+        <div class="card-body">
+            <h3>TableListView</h3>
+            <hr>
+            <div id="contentTable2"></div>
+        </div>
+    </div>
     <div class="card shadow rounded-3">
         <div class="card-body">
             <h3>Select 2</h3>
@@ -23,6 +30,7 @@
         const modal = document.getElementById("modalForm");
         {# get modal #}
         const content = document.getElementById("contentTable");
+        const content2 = document.getElementById("contentTable2");
         {# content in to load table #}
 
         const modulo = new Modulo();
@@ -30,7 +38,14 @@
         lista.post_cargar_lista = () => {
             lista.botones("{% url 'modulo:test-crear' %}", "{% url 'modulo:test-editar' 0 %}", "{% url 'modulo:test-eliminar' 0 %}", "TestData")
         }
-        formulario.onsubmit = ev => lista.submit(ev);
+        const lista2 = new ListaView(modulo, content2, "{% url 'modulo:test-table-lista' %}");
+        lista2.post_cargar_lista = () => {
+            lista2.botones("{% url 'modulo:test-crear' %}", "{% url 'modulo:test-editar' 0 %}", "{% url 'modulo:test-eliminar' 0 %}", "TestData")
+        }
+        formulario.onsubmit = ev => {
+            lista.submit(ev)
+            lista2.reload_table();
+        };
         lista.click_row_select = (pk) => {
         }
         $("#id_test_combo").select2({

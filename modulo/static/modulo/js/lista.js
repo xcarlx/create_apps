@@ -38,6 +38,11 @@ class ListaView {
         this.click_row_select = () => {
 
         }
+
+    }
+
+    reload_table = () => {
+        this.cargar_lista(this.url);
     }
 
     cargar_lista(url) {
@@ -51,6 +56,7 @@ class ListaView {
             this.contenedor.hideloader();
         });
     }
+
 
     /**
      * open_modal
@@ -148,6 +154,7 @@ class ListaView {
             }
         }
     }
+
 }
 
 export default ListaView;
