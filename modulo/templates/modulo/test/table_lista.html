@@ -8,6 +8,7 @@
     {% for object in page_obj %}
         <tr data-pk="{{ object.pk }}">
             <td class=""> {{ object.name }}</td>
+            <td class=""> {{ object.is_enable }}</td>
             <td>
                 <div class="btn-group">
                     <button class="btnEditar btn btn-primary btn-sm" data-pk="{{ object.pk }}"><span

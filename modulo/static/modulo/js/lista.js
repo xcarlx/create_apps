@@ -52,7 +52,7 @@ class ListaView {
             this.selected((r) => this.click_row_select(r));
         }).then(() => this.post_cargar_lista()).catch(error => {
             this.contenedor.innerHTML = "";
-            alert(error)
+            console.log(error)
             this.contenedor.hideloader();
         });
     }
@@ -81,7 +81,7 @@ class ListaView {
     search(url) {
         const txtBuscar = this.contenedor.querySelector("#txtBuscar");
         if (txtBuscar) {
-            txtBuscar.focus();
+            // txtBuscar.focus();
             txtBuscar.addEventListener("keypress", ev => {
                 if (ev.key === "Enter") {
                     this.cargar_lista(url + ("?" + "search=" + txtBuscar.value));

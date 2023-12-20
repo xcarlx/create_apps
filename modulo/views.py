@@ -48,7 +48,7 @@ class TableListaView(TableListView):
     template_name = "modulo/test/table_lista.html"
     paginate_by = 10
     ordering = ['id']
-    headers = ['Nombre']
+    headers = ['Nombre', "Activo"]
 
     def get_queryset(self):
         query = super(TableListView, self).get_queryset()

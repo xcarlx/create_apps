@@ -4,9 +4,12 @@ from modulo.models import TestData
 
 
 class TestDataForm(forms.ModelForm):
+    departamentos = forms.ChoiceField(choices=(("Lima", "Lima"), ("Cajamarca", "Cajamarca")),
+                                      widget=forms.RadioSelect())
+
     class Meta:
         model = TestData
-        fields = "__all__"
+        fields = ['name', 'is_enable', "departamentos"]
 
     def __init__(self, *args, **kwargs):
         super(TestDataForm, self).__init__(*args, **kwargs)
