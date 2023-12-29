@@ -12,6 +12,13 @@
             <div id="contentTable2"></div>
         </div>
     </div>
+    <div class="card shadow rounded-3 mb-3">
+        <div class="card-body">
+            <h3>TableListView</h3>
+            <hr>
+            <create-table></create-table>
+        </div>
+    </div>
     <div class="card shadow rounded-3">
         <div class="card-body">
             <h3>Select 2</h3>
@@ -24,6 +31,9 @@
         import Modulo from "{% static 'modulo/js/modulo.min.js' %}";
         import ListaView from "{% static 'modulo/js/lista.min.js' %}";
         import {ajax_select2} from "{% static 'modulo/js/modulo.min.js' %}";
+        import TableView from "{% static 'modulo/js/table.js' %}";
+
+        customElements.define("create-table", TableView);
 
         const formulario = document.getElementById("formModal");
         {# get form #}
