@@ -1,4 +1,6 @@
-
-
+db.sqlite3
+/venv/
+/django-bt5-modulo/.travis.yml
+.travis.yml
 modulo/static/modulo/js/lista.js
 modulo/static/modulo/js/modulo.js
