@@ -27,6 +27,7 @@ modulo/static/modulo/js/lista.js
 modulo/static/modulo/js/lista.min.js
 modulo/static/modulo/js/modulo.js
 modulo/static/modulo/js/modulo.min.js
+modulo/static/modulo/js/table.js
 modulo/static/modulo/plugins/bootstrap/bootstrap-icons/LICENSE.md
 modulo/static/modulo/plugins/bootstrap/bootstrap-icons/README.md
 modulo/static/modulo/plugins/bootstrap/bootstrap-icons/bootstrap-icons.svg

@@ -30,7 +30,7 @@ class HomeView(TemplateView):
 class ListaView(ListView):
     model = TestData
     template_name = "modulo/test/lista.html"
-    paginate_by = 10
+    paginate_by = 3
     ordering = ['id']
 
     def get_queryset(self):

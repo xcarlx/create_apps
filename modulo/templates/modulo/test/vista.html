@@ -19,17 +19,28 @@
             <create-table></create-table>
         </div>
     </div>
-    <div class="card shadow rounded-3">
+    <div class="card shadow rounded-3 mb-3">
         <div class="card-body">
             <h3>Select 2</h3>
             <label for="id_test_combo"></label><select name="" id="id_test_combo"></select>
         </div>
     </div>
+    <div class="card shadow rounded-3 mb-3">
+        <div class="card-body">
+            <h3>Modal</h3>
+            <select name="modalselect" id="id_modalselect">
+                <option value="">Default</option>
+                <option value="sm">Small</option>
+                <option value="lg">Large</option>
+                <option value="xl">Extra Large</option>
+            </select>
+        </div>
+    </div>
 {% endblock %}
 {% block scripts %}
     <script type="module">
-        import Modulo from "{% static 'modulo/js/modulo.min.js' %}";
-        import ListaView from "{% static 'modulo/js/lista.min.js' %}";
+        import Modulo from "{% static 'modulo/js/modulo.js' %}";
+        import ListaView from "{% static 'modulo/js/lista.js' %}";
         import {ajax_select2} from "{% static 'modulo/js/modulo.min.js' %}";
         import TableView from "{% static 'modulo/js/table.js' %}";
 
@@ -58,6 +69,12 @@
         };
         lista.click_row_select = (pk) => {
         }
+        document.querySelector('#id_modalselect').onchange = evt => {
+            const div = document.createElement('div')
+            div.innerHTML = '<h1>Hola</h1>'
+            modulo.open_modal_single(document.querySelector('#modalForm'), 'Modal Single', div, evt.target.value)
+        }
+
         $("#id_test_combo").select2({
             theme: "bootstrap-5",
             width: "100%",

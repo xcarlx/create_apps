@@ -15,32 +15,25 @@ class ListaView {
         };
         this.submit = (ev) => this.modelo.onSubmit(ev, this.contenedor, this.formulario, this.modal).then(resultado => {
             if (resultado.estado) {
-                const by_pagination = this.contenedor.querySelector('#by_pagination')
-                if (by_pagination) {
-                    this.pagination = by_pagination.value
-                }
                 const txtBuscar = this.contenedor.querySelector("#txtBuscar");
                 let search = null;
                 if (txtBuscar) {
                     if (txtBuscar.value) {
                         search = ("&" + "search=" + txtBuscar.value);
                     }
+                    this.cargar_lista(this.url + (this.pagina ? this.pagina : txtBuscar.value ? "?" + txtBuscar.value : "") + (search ? search : ""))
+
+                } else {
+                    this.cargar_lista(this.url + (this.pagina ? this.pagina : ""))
                 }
-                this.cargar_lista(this.url + (
-                    this.pagina ? this.pagina : ''
-                ) + '&pagination=' + this.pagination + (search ? search : ""))
-
-
             } else {
                 this.error_submit();
             }
-            console.log(resultado)
             return resultado;
         });
 
         this.pagina = "";
         this.buscar = "";
-        this.pagination = "5";
 
         this.click_row_select = () => {
 
@@ -59,11 +52,9 @@ class ListaView {
                 this.paginacion(this.url);
                 this.selected((r) => this.click_row_select(r));
                 this.post_cargar_lista();
-                this.paginar(this.url);
-
             }).catch(error => {
             this.pagina = '';
-            this.cargar_lista(this.url + (this.pagination ? '?pagination=' + this.pagination : ''));
+            this.cargar_lista(this.url);
             this.contenedor.hideloader();
         })
     }
@@ -117,7 +108,7 @@ class ListaView {
         if (pages) {
             pages.forEach(element => {
                 element.addEventListener("click", evt => {
-                    this.cargar_lista(url + element.dataset.page + ("&" + "pagination=" + this.pagination) + (search ? search : ""))
+                    this.cargar_lista(url + element.dataset.page + (search ? search : ""))
                     this.pagina = element.dataset.page;
                 })
             })
@@ -164,23 +155,6 @@ class ListaView {
                 this.open_modal(url, titulo, options);
             }
         }
-    }
-
-    paginar(url) {
-        const by_pagination = this.contenedor.querySelector('#by_pagination')
-        if (by_pagination) {
-            by_pagination.onchange = evt => {
-                this.pagination = by_pagination.value
-                let url = this.url
-                // url += '?pagination=' + this.pagination;
-                this.cargar_lista(url + "?" + "pagination=" + (this.pagination ? this.pagination : ''))
-                // this.pagination = ''
-            }
-            by_pagination.value = this.pagination;
-
-            // by_pagination.dispatchEvent(new CustomEvent('change'))
-        }
-
     }
 
 }

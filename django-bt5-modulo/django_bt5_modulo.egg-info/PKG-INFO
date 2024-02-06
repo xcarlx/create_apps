@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-bt5-modulo
-Version: 0.2
+Version: 0.3
 Summary: A Django app to conduct web-based bootstrap5, select2, CRUD, TABLE.
 Home-page: https://pypi.org/project/django-bootstrap5-modulo/
 Author: Carlos Y. Ruiz Vasquez
