@@ -58,7 +58,7 @@ export default class ListaView {
             }
             this.set_per_paginator(false);
             this.search(this.url);
-            this.paginar(this.url);
+            this.paginar();
             this.paginacion(this.url);
             this.post_cargar_lista();
             this.selected((r) => this.click_row_select(r));
@@ -168,12 +168,12 @@ export default class ListaView {
         }
     }
 
-    paginar(url) {
+    paginar() {
         const by_pagination = this.contenedor.querySelector('#by_pagination')
         const txtBuscar = this.contenedor.querySelector("#txtBuscar");
 
         if (by_pagination) {
-            by_pagination.onchange = evt => {
+            by_pagination.onchange = () => {
                 this.pagination = by_pagination.value
                 let url = this.url
                 // url += '?pagination=' + this.pagination;
