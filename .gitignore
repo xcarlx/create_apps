@@ -1,3 +1,6 @@
 db.sqlite3
-/venv/
+.venv/
 .travis.yml
+.idea
+package-lock.json
+/.idea/
