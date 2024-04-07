@@ -52,7 +52,7 @@ export default class ListaView {
         this.modelo.getUrlContenedor(url, this.contenedor).then(() => {
             const btnActualizar = this.contenedor.querySelector("#btnActualizar");
             if (btnActualizar) {
-                btnActualizar.addEventListener("click", evt => {
+                btnActualizar.addEventListener("click", () => {
                     this.reload_table()
                 })
             }
@@ -117,7 +117,7 @@ export default class ListaView {
 
         if (pages) {
             pages.forEach(element => {
-                element.addEventListener("click", evt => {
+                element.addEventListener("click", () => {
                     this.cargar_lista(url + (element.dataset.page ? element.dataset.page : "?") + ("&pagination=" + this.pagination) + (search ? search : ""))
                     this.pagina = element.dataset.page;
                 })
@@ -201,7 +201,6 @@ export default class ListaView {
 
         }
     }
-
 
 }
 
