@@ -28,6 +28,7 @@ modulo/static/modulo/js/lista.min.js
 modulo/static/modulo/js/modulo.js
 modulo/static/modulo/js/modulo.min.js
 modulo/static/modulo/js/table.js
+modulo/static/modulo/js/table.min.js
 modulo/static/modulo/plugins/bootstrap/bootstrap-icons/LICENSE.md
 modulo/static/modulo/plugins/bootstrap/bootstrap-icons/README.md
 modulo/static/modulo/plugins/bootstrap/bootstrap-icons/bootstrap-icons.svg
@@ -1609,7 +1610,9 @@ modulo/static/modulo/plugins/bootstrap/dist/js/bootstrap.min.js
 modulo/static/modulo/plugins/bootstrap/dist/js/bootstrap.min.js.map
 modulo/static/modulo/plugins/bootstrap/dist/js/bootstrap.min.min.js
 modulo/static/modulo/plugins/jquery/jquery-3.5.0.min.js
+modulo/static/modulo/plugins/jquery/jquery-3.5.0.min.min.js
 modulo/static/modulo/plugins/jquery/jquery-3.6.0.min.js
+modulo/static/modulo/plugins/jquery/jquery-3.6.0.min.min.js
 modulo/static/modulo/plugins/select2/css/select2-bootstrap-5-theme.css
 modulo/static/modulo/plugins/select2/css/select2-bootstrap-5-theme.min.css
 modulo/static/modulo/plugins/select2/css/select2-bootstrap-5-theme.rtl.css
@@ -1620,8 +1623,10 @@ modulo/static/modulo/plugins/select2/css/select2.css
 modulo/static/modulo/plugins/select2/css/select2.min.css
 modulo/static/modulo/plugins/select2/js/select2.full.js
 modulo/static/modulo/plugins/select2/js/select2.full.min.js
+modulo/static/modulo/plugins/select2/js/select2.full.min.min.js
 modulo/static/modulo/plugins/select2/js/select2.js
 modulo/static/modulo/plugins/select2/js/select2.min.js
+modulo/static/modulo/plugins/select2/js/select2.min.min.js
 modulo/static/modulo/plugins/select2/js/i18n/af.js
 modulo/static/modulo/plugins/select2/js/i18n/af.min.js
 modulo/static/modulo/plugins/select2/js/i18n/ar.js
@@ -1748,6 +1753,7 @@ modulo/static/modulo/plugins/select2/js/i18n/zh-TW.js
 modulo/static/modulo/plugins/select2/js/i18n/zh-TW.min.js
 modulo/static/modulo/plugins/sweetalert/README.md
 modulo/static/modulo/plugins/sweetalert/dist/sweetalert.min.js
+modulo/static/modulo/plugins/sweetalert/dist/sweetalert.min.min.js
 modulo/templates/modulo/formulario/base_mensaje.html
 modulo/templates/modulo/formulario/base_offcanvas.html
 modulo/templates/modulo/formulario/eliminar.html

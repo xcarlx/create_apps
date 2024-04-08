@@ -1,4 +1,4 @@
-import ListaView from "./lista.min.js";
+import ListaView from "./lista.js";
 
 class Modelo {
 
@@ -95,7 +95,8 @@ class Modelo {
                 if (response.ok) {
                     return response.text()
                 } else {
-                    throw new Error('Error')
+                    throw new Error(response.statusText)
+
                 }
             })
             .then(response => {
@@ -104,7 +105,7 @@ class Modelo {
                 element.hideloader();
             }).catch(error => {
                 element.hideloader();
-                throw new Error('Error')
+                throw new Error(error.message)
             });
     }
 
@@ -165,7 +166,7 @@ class Modelo {
     toastShow(element, texto, options = {}) {
         let ms = options.ms !== undefined ? options.ms : 1000;
         let bg = options.bg !== undefined ? options.bg : "bg-success"
-        var toast = new bootstrap.Toast(element, {
+        const toast = new bootstrap.Toast(element, {
             'animation': true, 'delay': ms ? ms : 2000,
         });
         element.classList.remove("bg-success");

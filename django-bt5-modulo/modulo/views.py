@@ -30,12 +30,15 @@ class HomeView(TemplateView):
 class ListaView(ListView):
     model = TestData
     template_name = "modulo/test/lista.html"
-    paginate_by = 3
+    paginate_by = 5
     ordering = ['id']
 
     def get_queryset(self):
         query = super(ListaView, self).get_queryset()
         search = self.request.GET.get("search")
+        pagination = self.request.GET.get("pagination")
+        if pagination:
+            self.paginate_by = int(pagination)
         if search:
             query = query.filter(
                 Q(name__icontains=search)
@@ -46,13 +49,16 @@ class ListaView(ListView):
 class TableListaView(TableListView):
     model = TestData
     template_name = "modulo/test/table_lista.html"
-    paginate_by = 10
+    paginate_by = 5
     ordering = ['id']
     headers = ['Nombre', "Activo"]
 
     def get_queryset(self):
         query = super(TableListView, self).get_queryset()
         search = self.request.GET.get("search")
+        pagination = self.request.GET.get("pagination")
+        if pagination:
+            self.paginate_by = int(pagination)
         if search:
             query = query.filter(
                 Q(name__icontains=search)

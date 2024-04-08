@@ -4,7 +4,6 @@ export default class TableView extends HTMLElement {
         super();
         this.attachShadow({mode: "open"});
     }
-
     connectedCallback() {
         this.shadowRoot.innerHTML = `
             <div class="table-responsive">

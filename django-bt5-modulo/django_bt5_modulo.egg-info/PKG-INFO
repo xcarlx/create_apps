@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: django-bt5-modulo
-Version: 0.3
+Version: 0.5
 Summary: A Django app to conduct web-based bootstrap5, select2, CRUD, TABLE.
 Home-page: https://pypi.org/project/django-bootstrap5-modulo/
 Author: Carlos Y. Ruiz Vasquez
 Author-email: xcarlx2@hotmail.com
-License: BSD-3-Clause  # Example license
+License: MIT License  # Example license
 Classifier: Environment :: Web Environment
 Classifier: Framework :: Django
 Classifier: Intended Audience :: Developers
@@ -21,7 +21,7 @@ Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
 Requires-Python: >=3.8
 Description-Content-Type: text/x-rst
 License-File: LICENSE
-Requires-Dist: Django>=4.0
+Requires-Dist: Django>=4.2
 
 Modulo
 ==========
