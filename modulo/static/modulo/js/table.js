@@ -11,7 +11,6 @@ export default class TableView extends HTMLElement {
                 <thead class="table-light"></thead>
                 <tbody></tbody>
                 </table>
-                <h1>hola mundo1</h1>
             </div>
         `;
     }

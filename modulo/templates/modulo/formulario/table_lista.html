@@ -117,8 +117,7 @@
                                         {% endfor %}
                                         <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
                                             <a class="paginacion page-link"
-                                               data-page="?page=
-                                               {% if page_obj.has_next %}{{ page_obj.next_page_number }}{% endif %}"
+                                               data-page="?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% endif %}"
                                                href="javascript:void(0)">Siguiente
                                             </a>
                                         </li>
@@ -199,15 +198,13 @@
                     {% endfor %}
                     <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
                         <a class="paginacion page-link"
-                           data-page="?page=
-                                               {% if page_obj.has_next %}{{ page_obj.next_page_number }}{% endif %}"
+                           data-page="?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% endif %}"
                            href="javascript:void(0)">Siguiente
                         </a>
                     </li>
                     <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
                         <a class="paginacion page-link"
-                           data-page="?page=
-                                               {% if page_obj.has_next %}{{ page_obj.paginator.num_pages }}{% endif %}"
+                           data-page="?page={% if page_obj.has_next %}{{ page_obj.paginator.num_pages }}{% endif %}"
                            href="javascript:void(0)">Ultimo</a>
                     </li>
                 </ul>
