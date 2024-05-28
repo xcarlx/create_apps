@@ -12,6 +12,7 @@ class Select2JSONResponseMixin:
     order_by = None  # lista de orden
     slug_pk = None  # si no es id el atributo de retorno (pk)
     slug_text = None
+    paginate_by = 10
 
     """
     A mixin that can be used to render a JSON response.
@@ -46,7 +47,7 @@ class Select2JSONResponseMixin:
                 eval("| ".join(filtro))
             ).order_by(f"{','.join(self.order_by) if self.order_by else '-id'}")
 
-        paginator = Paginator(objeto, 6)
+        paginator = Paginator(objeto, self.paginate_by)
         obj = paginator.get_page(page)
         lista = list()
         for object in obj:
