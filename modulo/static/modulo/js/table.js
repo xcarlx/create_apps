@@ -1,4 +1,4 @@
-import sheet from "/static/modulo/plugins/bootstrap/dist/css/bootstrap.min.css" assert { type: 'css' };
+// import sheet from "/static/modulo/plugins/bootstrap/dist/css/bootstrap.min.css" ;
 
 export default class TableView extends HTMLElement {
 
@@ -9,8 +9,8 @@ export default class TableView extends HTMLElement {
     }
 
     async connectedCallback() {
-        document.adoptedStyleSheets = [sheet];
-        this.shadowRoot.adoptedStyleSheets = [sheet];
+        // document.adoptedStyleSheets = [sheet];
+        // this.shadowRoot.adoptedStyleSheets = [sheet];
         this.shadowRoot.innerHTML = `
             <div class="table-responsive">
                 <table>
