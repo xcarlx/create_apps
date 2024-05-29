@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import JsonResponse
 from django.urls import reverse_lazy
@@ -94,3 +95,36 @@ class ComboView(Select2JSONResponseMixin, TemplateView):
 
 class VistaMaterialView(TemplateView):
     template_name = 'modulo/test/material/vista_material.html'
+
+
+class TablaComponetsView(View):
+    def get(self, request):
+        testdata = TestData.objects.all().order_by('id')
+        page_number = request.GET.get("page")
+        paginacion = request.GET.get("paginacion", 10)
+        paginator = Paginator(testdata, paginacion)  # Show 25 contacts per page.
+        page_obj = paginator.get_page(page_number)
+        # print(page_obj.__dict__)
+        rows = []
+        for obj in page_obj:
+            obj_data = {
+                "id": obj.id,
+                "name": obj.name,
+                "is_enable": obj.is_enable,
+            }
+            rows.append(obj_data)
+        pages = {
+            "number ": page_obj.number,
+            "num_pages ": page_obj.paginator.num_pages,
+            "page_range": [page for page in page_obj.paginator.page_range],
+            "has_previous": page_obj.has_previous(),
+            "previous_page_number ": page_obj.previous_page_number() if page_obj.has_previous() else None,
+            "has_next": page_obj.has_next(),
+            "next_page_number  ": page_obj.next_page_number() if page_obj.has_next() else None,
+        }
+        data = {
+            "headers": ["Nombre", "Activo"],
+            "rows": rows,
+            "pages": pages,
+        }
+        return JsonResponse(data)

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from .views import SuccessView, HomeView, ListaView, TableListaView, CrearView, EditarView, EliminarView, ComboView, \
-    VistaMaterialView
+    VistaMaterialView, TablaComponetsView
 
 app_name = "modulo"
 urlpatterns = [
@@ -28,5 +28,6 @@ urlpatterns = [
     path('test/eliminar/<int:pk>/', EliminarView.as_view(), name='test-eliminar'),
     path('test/combo/', ComboView.as_view(), name='test-combo'),
     path('test/material/', VistaMaterialView.as_view(), name='material'),
+    path('test/ajaxtable/', TablaComponetsView.as_view(), name='ajax-table'),
 
 ]

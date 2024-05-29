@@ -17,7 +17,8 @@
         <div class="card-body">
             <h3>TableListView</h3>
             <hr>
-            <create-table></create-table>
+            <create-table id="table_ajax"></create-table>
+{#            <create-table id="table_ajax1"></create-table>#}
         </div>
     </div>
     <div class="card shadow rounded-3 mb-3">
@@ -45,7 +46,13 @@
         import {ajax_select2} from "{% static 'modulo/js/modulo.js' %}";
         import TableView from "{% static 'modulo/js/table.js' %}";
 
+        const modulo = new Modulo();
+
         customElements.define("create-table", TableView);
+        const table_ajax = document.querySelector('#table_ajax');
+        {#const table_ajax1 = document.querySelector('#table_ajax1');#}
+        table_ajax.data = await modulo.getGetObjectJson("{% url 'modulo:ajax-table' %}")
+        {#table_ajax1.data = await modulo.getGetObjectJson("{% url 'modulo:ajax-table' %}")#}
 
         {#const formulario1 = document.getElementById("formModal");#}
         {# get form #}
@@ -55,18 +62,17 @@
         const content2 = document.getElementById("contentTable2");
         {# content in to load table #}
 
-        const modulo = new Modulo();
         const lista = new ListaView(modulo, content, "{% url 'modulo:test-lista' %}");
         lista.post_cargar_lista = () => {
             lista.botones("{% url 'modulo:test-crear' %}", "{% url 'modulo:test-editar' 0 %}", "{% url 'modulo:test-eliminar' 0 %}", "TestData")
             lista.formulario.onsubmit = ev1 => lista.submit(ev1);
         }
+
         const lista2 = new ListaView(modulo, content2, "{% url 'modulo:test-table-lista' %}");
         lista2.post_cargar_lista = () => {
             lista2.botones("{% url 'modulo:test-crear' %}", "{% url 'modulo:test-editar' 0 %}", "{% url 'modulo:test-eliminar' 0 %}", "TestData")
             lista2.formulario.onsubmit = ev => lista2.submit(ev);
         }
-
 
         lista.click_row_select = (pk) => {
             console.log(pk)
@@ -85,6 +91,6 @@
             width: "100%",
             ajax: ajax_select2("{% url 'modulo:test-combo' %}")
         })
-        modulo.toastShow(document.getElementById("toastLoading"), "sdasda", {ms:3000, bg:"bg-info"})
+        modulo.toastShow(document.getElementById("toastLoading"), "sdasda", {ms: 3000, bg: "bg-info"})
     </script>
 {% endblock %}
