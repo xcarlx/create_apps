@@ -12,6 +12,7 @@ export default class TableView extends HTMLElement {
         // document.adoptedStyleSheets = [sheet];
         // this.shadowRoot.adoptedStyleSheets = [sheet];
         this.shadowRoot.innerHTML = `
+            <link rel="stylesheet" href="/static/modulo/plugins/bootstrap/dist/css/bootstrap.min.css"
             <div class="table-responsive">
                 <table>
                 <thead></thead>
@@ -47,6 +48,7 @@ export default class TableView extends HTMLElement {
                 if (key !== 'id') {
                     const td = document.createElement('td');
                     td.textContent = rowData[key]
+                    td.classList.add('text-center')
                     row.append(td)
                 }
             }
